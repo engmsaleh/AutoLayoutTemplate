@@ -1,18 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A598" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3676"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="KSViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sNF-s4-0M0"/>
+                        <viewControllerLayoutGuide type="bottom" id="RAj-zx-NRI"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R64-Sc-w3Q">
+                                <rect key="frame" x="20" y="20" width="488" height="728"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.30014788502968515" green="0.68040930706521741" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2W-T5-OQP">
+                                <rect key="frame" x="516" y="20" width="488" height="728"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.15308761780750846" green="0.70666170919384275" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="R64-Sc-w3Q" secondAttribute="bottom" constant="20" id="2hi-Ny-Lsk"/>
+                            <constraint firstItem="R64-Sc-w3Q" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="KBj-vn-u4S"/>
+                            <constraint firstAttribute="bottom" secondItem="M2W-T5-OQP" secondAttribute="bottom" constant="20" id="KJy-hd-vkE"/>
+                            <constraint firstItem="M2W-T5-OQP" firstAttribute="width" secondItem="R64-Sc-w3Q" secondAttribute="width" id="QAV-il-uFU"/>
+                            <constraint firstAttribute="trailing" secondItem="M2W-T5-OQP" secondAttribute="trailing" constant="20" id="VAc-zd-3eU"/>
+                            <constraint firstItem="M2W-T5-OQP" firstAttribute="leading" secondItem="R64-Sc-w3Q" secondAttribute="trailing" constant="8" symbolic="YES" id="hol-Ql-kQA"/>
+                            <constraint firstItem="R64-Sc-w3Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="mQ1-jx-58m"/>
+                            <constraint firstItem="M2W-T5-OQP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="ssz-x8-BLr"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="conatinerView" destination="8bC-Xf-vdC" id="FXT-Oc-Bdo"/>
+                        <outlet property="equalWidths" destination="QAV-il-uFU" id="4eZ-pw-j21"/>
+                        <outlet property="leftOrTopView" destination="R64-Sc-w3Q" id="8bc-U5-6tN"/>
+                        <outlet property="leftTopToBottomSpace" destination="2hi-Ny-Lsk" id="CZe-zR-dMb"/>
+                        <outlet property="rightBottomToBottomSpace" destination="KJy-hd-vkE" id="xdu-4l-ZEq"/>
+                        <outlet property="rightBottomToTopSpace" destination="ssz-x8-BLr" id="sdz-la-p6H"/>
+                        <outlet property="rightOrBottomView" destination="M2W-T5-OQP" id="9zq-Hp-xGA"/>
+                        <outlet property="trailingSpaceLeftTopToRightBottomView" destination="hol-Ql-kQA" id="oNh-Ih-mFP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
