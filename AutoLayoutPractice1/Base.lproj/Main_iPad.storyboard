@@ -46,10 +46,7 @@
                         <outlet property="equalHeights" destination="two-LU-yKF" id="Uvb-8R-dtE"/>
                         <outlet property="equalWidths" destination="QAV-il-uFU" id="4eZ-pw-j21"/>
                         <outlet property="leftOrTopView" destination="R64-Sc-w3Q" id="8bc-U5-6tN"/>
-                        <outlet property="rightBottomToBottomSpace" destination="KJy-hd-vkE" id="xdu-4l-ZEq"/>
-                        <outlet property="rightBottomToTopSpace" destination="ssz-x8-BLr" id="sdz-la-p6H"/>
                         <outlet property="rightOrBottomView" destination="M2W-T5-OQP" id="9zq-Hp-xGA"/>
-                        <outlet property="trailingSpaceLeftTopToRightBottomView" destination="hol-Ql-kQA" id="oNh-Ih-mFP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

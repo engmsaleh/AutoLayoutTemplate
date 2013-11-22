@@ -12,27 +12,8 @@
 @property (strong, nonatomic) IBOutlet UIView *leftOrTopView;
 @property (strong, nonatomic) IBOutlet UIView *rightOrBottomView;
 @property (strong, nonatomic) IBOutlet UIView *containerView;
-
-//Constraints true in both orientation
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *rightBottomToBottomSpace;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *equalWidths;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *equalHeights;
-
-//Only applicable in Landscape
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *trailingSpaceLeftTopToRightBottomView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *rightBottomToTopSpace;
-
-//Only applicable in Portrait
-@property (strong, nonatomic) NSLayoutConstraint *bottomSpaceLeftTopToRightBottomView;
-@property (strong, nonatomic) NSLayoutConstraint *trailingSpaceLeftTopToSuperview;
-@property (strong, nonatomic) NSLayoutConstraint *trailingSpaceRightBottomToSuperview;
-
-@property (strong, nonatomic) NSLayoutConstraint *leadingSpaceLeftTopToSuperview;
-@property (strong, nonatomic) NSLayoutConstraint *leadingSpaceRightBottomToSuperview;
-@property (strong, nonatomic) NSLayoutConstraint *bottomSpaceRightBottomToSuperview;
-
-//@property (strong, nonatomic) NSArray* portraitSpacingBetweenViews;
-//@property (strong, nonatomic) NSArray* portraitTrailingSpaceLeftTopToSuperView;
 @end
 
 @implementation KSViewController
@@ -40,32 +21,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-   _bottomSpaceLeftTopToRightBottomView = [NSLayoutConstraint constraintWithItem:_leftOrTopView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeTop multiplier:1.0 constant:20];
-    //_equalHeights = [NSLayoutConstraint constraintWithItem:_leftOrTopView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0];
-     _trailingSpaceLeftTopToSuperview = [NSLayoutConstraint constraintWithItem:_containerView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:_leftOrTopView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:20];
-    _trailingSpaceRightBottomToSuperview = [NSLayoutConstraint constraintWithItem:_containerView   attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:20];
-    
-    _leadingSpaceLeftTopToSuperview =  [NSLayoutConstraint constraintWithItem:_leftOrTopView   attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:20];
-    
-    _leadingSpaceRightBottomToSuperview =  [NSLayoutConstraint constraintWithItem:_rightOrBottomView   attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:20];
-    
-    _bottomSpaceRightBottomToSuperview =  [NSLayoutConstraint constraintWithItem:_containerView   attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:20];
-    
-    //Get the views dictionary
-    //NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_leftOrTopView, _rightOrBottomView);
-
-    //_topSpacingToLeftTopView =
-    //_leadingSpaceToLeftTopView =
-    //_trailingSpaceToRightBottomView =
-    //_bottomSpaceToRightBottomView =
-    //_leftTopRightLeftEqualWidth
-    //_leftTopRightBottomEqualHeight
-    //_landscapeSpacingBetweenViews
-    //_portraitSpacingBetweenViews
-    //_portraitSpacingBetweenViews = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_leftOrTopView]-[_rightOrBottomView]" options:NSLayoutFormatAlignAllLeft metrics:nil views:viewsDictionary];
-    //_portraitTrailingSpaceLeftTopToSuperView = [NSLayoutConstraint constraintsWithVisualFormat:@"[_leftOrTopView]-|" options:NSLayoutFormatAlignAllLeft metrics:nil views:NSDictionaryOfVariableBindings(_leftOrTopView)];
-    
 }
 
 -(void)updateViewConstraints
