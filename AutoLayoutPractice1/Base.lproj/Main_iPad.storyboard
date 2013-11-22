@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A598" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -27,9 +27,8 @@
                                 <color key="backgroundColor" red="0.15308761780750846" green="0.70666170919384275" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.84705889225006104" green="0.84313732385635376" blue="0.95686280727386475" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="R64-Sc-w3Q" secondAttribute="bottom" constant="20" id="2hi-Ny-Lsk"/>
                             <constraint firstItem="R64-Sc-w3Q" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="KBj-vn-u4S"/>
                             <constraint firstAttribute="bottom" secondItem="M2W-T5-OQP" secondAttribute="bottom" constant="20" id="KJy-hd-vkE"/>
                             <constraint firstItem="M2W-T5-OQP" firstAttribute="width" secondItem="R64-Sc-w3Q" secondAttribute="width" id="QAV-il-uFU"/>
@@ -37,15 +36,16 @@
                             <constraint firstItem="M2W-T5-OQP" firstAttribute="leading" secondItem="R64-Sc-w3Q" secondAttribute="trailing" constant="8" symbolic="YES" id="hol-Ql-kQA"/>
                             <constraint firstItem="R64-Sc-w3Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="mQ1-jx-58m"/>
                             <constraint firstItem="M2W-T5-OQP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="ssz-x8-BLr"/>
+                            <constraint firstItem="R64-Sc-w3Q" firstAttribute="height" secondItem="M2W-T5-OQP" secondAttribute="height" id="two-LU-yKF"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="conatinerView" destination="8bC-Xf-vdC" id="FXT-Oc-Bdo"/>
+                        <outlet property="containerView" destination="8bC-Xf-vdC" id="i7D-Q6-drG"/>
+                        <outlet property="equalHeights" destination="two-LU-yKF" id="Uvb-8R-dtE"/>
                         <outlet property="equalWidths" destination="QAV-il-uFU" id="4eZ-pw-j21"/>
                         <outlet property="leftOrTopView" destination="R64-Sc-w3Q" id="8bc-U5-6tN"/>
-                        <outlet property="leftTopToBottomSpace" destination="2hi-Ny-Lsk" id="CZe-zR-dMb"/>
                         <outlet property="rightBottomToBottomSpace" destination="KJy-hd-vkE" id="xdu-4l-ZEq"/>
                         <outlet property="rightBottomToTopSpace" destination="ssz-x8-BLr" id="sdz-la-p6H"/>
                         <outlet property="rightOrBottomView" destination="M2W-T5-OQP" id="9zq-Hp-xGA"/>

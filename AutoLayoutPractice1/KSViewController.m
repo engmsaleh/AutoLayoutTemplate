@@ -11,23 +11,28 @@
 @interface KSViewController ()
 @property (strong, nonatomic) IBOutlet UIView *leftOrTopView;
 @property (strong, nonatomic) IBOutlet UIView *rightOrBottomView;
-@property (strong, nonatomic) IBOutlet UIView *conatinerView;
+@property (strong, nonatomic) IBOutlet UIView *containerView;
 
 //Constraints true in both orientation
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *rightBottomToBottomSpace;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *equalWidths;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *equalHeights;
 
 //Only applicable in Landscape
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *trailingSpaceLeftTopToRightBottomView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *equalWidths;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *leftTopToBottomSpace;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *rightBottomToTopSpace;
 
 //Only applicable in Portrait
 @property (strong, nonatomic) NSLayoutConstraint *bottomSpaceLeftTopToRightBottomView;
-@property (strong, nonatomic) NSLayoutConstraint *equalHeights;
 @property (strong, nonatomic) NSLayoutConstraint *trailingSpaceLeftTopToSuperview;
+@property (strong, nonatomic) NSLayoutConstraint *trailingSpaceRightBottomToSuperview;
 
+@property (strong, nonatomic) NSLayoutConstraint *leadingSpaceLeftTopToSuperview;
+@property (strong, nonatomic) NSLayoutConstraint *leadingSpaceRightBottomToSuperview;
+@property (strong, nonatomic) NSLayoutConstraint *bottomSpaceRightBottomToSuperview;
 
+//@property (strong, nonatomic) NSArray* portraitSpacingBetweenViews;
+//@property (strong, nonatomic) NSArray* portraitTrailingSpaceLeftTopToSuperView;
 @end
 
 @implementation KSViewController
@@ -36,50 +41,144 @@
 {
     [super viewDidLoad];
     
-    _bottomSpaceLeftTopToRightBottomView = [NSLayoutConstraint constraintWithItem:_leftOrTopView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeTop multiplier:1.0 constant:20];
-    _equalHeights = [NSLayoutConstraint constraintWithItem:_leftOrTopView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0];
-    _trailingSpaceLeftTopToSuperview = [NSLayoutConstraint constraintWithItem:_leftOrTopView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:_conatinerView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:20];
-
-    // Get the views dictionary
-    //NSDictionary *viewsDictionary =
-    //     NSDictionaryOfVariableBindings(_leftOrTopView, _leftOrTopView);
+   _bottomSpaceLeftTopToRightBottomView = [NSLayoutConstraint constraintWithItem:_leftOrTopView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeTop multiplier:1.0 constant:20];
+    //_equalHeights = [NSLayoutConstraint constraintWithItem:_leftOrTopView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0];
+     _trailingSpaceLeftTopToSuperview = [NSLayoutConstraint constraintWithItem:_containerView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:_leftOrTopView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:20];
+    _trailingSpaceRightBottomToSuperview = [NSLayoutConstraint constraintWithItem:_containerView   attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:20];
     
-     //_portraitBetweenViews = [NSLayoutConstraint constraintWithVisualFormat:@"[_leftOrTopView]-[_rightOrBottomView]" option   ns:NSLayoutFormatAlignAllBaseline metrics:Nil views:viewsDictionary];
-	// Do any additional setup after loading the view, typically from a nib.
+    _leadingSpaceLeftTopToSuperview =  [NSLayoutConstraint constraintWithItem:_leftOrTopView   attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:20];
+    
+    _leadingSpaceRightBottomToSuperview =  [NSLayoutConstraint constraintWithItem:_rightOrBottomView   attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:_containerView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:20];
+    
+    _bottomSpaceRightBottomToSuperview =  [NSLayoutConstraint constraintWithItem:_containerView   attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:20];
+    
+    //Get the views dictionary
+    //NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_leftOrTopView, _rightOrBottomView);
+
+    //_topSpacingToLeftTopView =
+    //_leadingSpaceToLeftTopView =
+    //_trailingSpaceToRightBottomView =
+    //_bottomSpaceToRightBottomView =
+    //_leftTopRightLeftEqualWidth
+    //_leftTopRightBottomEqualHeight
+    //_landscapeSpacingBetweenViews
+    //_portraitSpacingBetweenViews
+    //_portraitSpacingBetweenViews = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_leftOrTopView]-[_rightOrBottomView]" options:NSLayoutFormatAlignAllLeft metrics:nil views:viewsDictionary];
+    //_portraitTrailingSpaceLeftTopToSuperView = [NSLayoutConstraint constraintsWithVisualFormat:@"[_leftOrTopView]-|" options:NSLayoutFormatAlignAllLeft metrics:nil views:NSDictionaryOfVariableBindings(_leftOrTopView)];
+    
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    [self.view setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [_leftOrTopView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [_rightOrBottomView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self updateViewConstraints];
+    /*
+       //[self.view setTranslatesAutoresizingMaskIntoConstraints:NO];
+       //[_containerView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [_leftOrTopView setTranslatesAutoresizingMaskIntoConstraints:NO];
+       [_rightOrBottomView setTranslatesAutoresizingMaskIntoConstraints:NO];
 
     if(UIDeviceOrientationIsLandscape(self.interfaceOrientation))
     {
-        [_leftOrTopView setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [_rightOrBottomView setTranslatesAutoresizingMaskIntoConstraints:NO];
-        
-        [_leftOrTopView addConstraint:_leftTopToBottomSpace];
-        [_leftOrTopView removeConstraint:_bottomSpaceLeftTopToRightBottomView];
-        
-        //[self.view addConstraint:_equalWidths];
-        //[self.view removeConstraint:_equalHeights];
-        
-        [_leftOrTopView removeConstraint:_trailingSpaceLeftTopToSuperview];
+        [_containerView removeConstraint: _bottomSpaceLeftTopToRightBottomView];//V:[LT]-[RB]
+        [_containerView removeConstraint:_trailingSpaceLeftTopToSuperview];//H:[LT]-[C]
+       //[_containerView removeConstraint:_trailingSpaceRightBottomToSuperview];//H:[RB]-[C]
+
+        [_containerView addConstraint:_trailingSpaceLeftTopToRightBottomView];//H:[LT]-[RB]
+        [_containerView addConstraint:_rightBottomToTopSpace];//V:[C]-[RB]
     }
     else
     {
-        [_leftOrTopView removeConstraint:_leftTopToBottomSpace];
-        [_leftOrTopView addConstraint:_bottomSpaceLeftTopToRightBottomView];
-        
-        //[self.view removeConstraint:_equalWidths];
-        //[self.view addConstraint:_equalHeights];
-        
-        //[_leftOrTopView addConstraint:_trailingSpaceLeftTopToSuperview];
+        [_containerView removeConstraint:_trailingSpaceLeftTopToRightBottomView];//H:[LT]-[RB]
+        [_containerView removeConstraint:_rightBottomToTopSpace];//V:[C]-[RB]
+        [_containerView addConstraint:_bottomSpaceLeftTopToRightBottomView];//V:[LT]-[RB]
+        [_containerView addConstraint:_trailingSpaceLeftTopToSuperview];//H:[LT]-[C]
+        //[_containerView addConstraint:_trailingSpaceRightBottomToSuperview];//H:[RB]-[C]
     }
-    [_leftOrTopView updateConstraintsIfNeeded];
-    [_rightOrBottomView updateConstraintsIfNeeded];
-    [_conatinerView updateConstraintsIfNeeded];
+    [_leftOrTopView updateConstraints];
+    [_rightOrBottomView updateConstraints];
+    [_containerView updateConstraints];
+    //[_leftOrTopView setNeedsUpdateConstraints];
+    //[_rightOrBottomView setNeedsUpdateConstraints];
+    //[_containerView setNeedsUpdateConstraints];
+    //[_containerView layoutSubviews];
+    //[_leftOrTopView layoutSubviews];
+    //[_rightOrBottomView layoutSubviews];
+     */
+}
+
+-(void)updateViewConstraints
+{
+    [_leftOrTopView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [_rightOrBottomView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    //[self.view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    if(UIDeviceOrientationIsLandscape(self.interfaceOrientation))
+    {
+
+        //H:|-[LT]-[RT]-|
+        //V:|-[LT]-|
+        //V:|-[RT]-|
+        
+        [_containerView removeConstraints:_containerView.constraints];
+        [_containerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"|-[_leftOrTopView]-[_rightOrBottomView]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_leftOrTopView, _rightOrBottomView)]];
+        [_containerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_leftOrTopView]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_leftOrTopView)]];
+        [_containerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_rightOrBottomView]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_rightOrBottomView)]];
+        [_containerView addConstraint:_equalWidths];
+        [_containerView addConstraint:_equalHeights];
+
+        /*
+        [_containerView removeConstraint: _bottomSpaceLeftTopToRightBottomView];//V:[LT]-[RB]
+        [_containerView removeConstraint:_trailingSpaceLeftTopToSuperview];//H:[LT]-[C]
+        [_containerView removeConstraint:_trailingSpaceRightBottomToSuperview];//H:[RB]-[C]
+        
+        [_containerView removeConstraint:_leadingSpaceLeftTopToSuperview];
+        [_containerView removeConstraint:_leadingSpaceRightBottomToSuperview];
+        [_containerView removeConstraint:_bottomSpaceRightBottomToSuperview];
+        
+        [_containerView addConstraint:_trailingSpaceLeftTopToRightBottomView];//H:[LT]-[RB]
+        [_containerView addConstraint:_rightBottomToTopSpace];//V:[C]-[RB]
+         */
+    }
+    else
+    {
+        //H:|-[LT]-|
+        //H:|-[RT]-|
+        //V:|-[LT]-[RT]-|
+        
+        [_containerView removeConstraints:_containerView.constraints];
+        [_containerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"|-[_leftOrTopView]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_leftOrTopView)]];
+        [_containerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"|-[_rightOrBottomView]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_rightOrBottomView)]];
+        [_containerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_leftOrTopView]-[_rightOrBottomView]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_leftOrTopView, _rightOrBottomView)]];
+        [_containerView addConstraint:_equalWidths];
+        [_containerView addConstraint:_equalHeights];
+        
+        /*
+        [_containerView removeConstraint:_trailingSpaceLeftTopToRightBottomView];//H:[LT]-[RB]
+        [_containerView removeConstraint:_rightBottomToTopSpace];//V:[C]-[RB]
+        
+        [_containerView addConstraint:_bottomSpaceLeftTopToRightBottomView];//V:[LT]-[RB]
+        [_containerView removeConstraint:_equalWidths];
+
+        [_containerView addConstraint:_leadingSpaceLeftTopToSuperview];//H:[C]-[LT]
+        [_containerView addConstraint:_trailingSpaceLeftTopToSuperview];//H:[LT]-[C]
+        
+        [_containerView addConstraint:_leadingSpaceRightBottomToSuperview];//H:[C]-[RB]
+        [_containerView addConstraint:_trailingSpaceRightBottomToSuperview];//H:[RB]-[C]
+        
+        [_containerView addConstraint:_bottomSpaceRightBottomToSuperview];//V:[RB]-[C]
+        */
+    }
+    //[_leftOrTopView updateConstraints];
+    //[_rightOrBottomView updateConstraints];
+    //[_containerView updateConstraints];
+    //[_leftOrTopView setNeedsUpdateConstraints];
+    //[_rightOrBottomView setNeedsUpdateConstraints];
+    //[_containerView setNeedsUpdateConstraints];
+    //[_containerView layoutSubviews];
+    //[_leftOrTopView layoutSubviews];
+    //[_rightOrBottomView layoutSubviews];
+    
+    [super updateViewConstraints];
 }
 
 - (void)didReceiveMemoryWarning
