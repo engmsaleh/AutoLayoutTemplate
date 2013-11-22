@@ -134,8 +134,6 @@
 //    [super updateViewConstraints];
 //}
 
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
