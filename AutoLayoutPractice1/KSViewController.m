@@ -14,6 +14,11 @@
 @property (strong, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *equalWidths;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *equalHeights;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *textViewToTop;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *textViewToBottom;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *textViewToTrailing;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *textViewToLeading;
+
 @end
 
 @implementation KSViewController
@@ -42,7 +47,10 @@
        //[_containerView addConstraint:_equalWidths];
         //[_containerView addConstraint:_equalHeights];
         [_containerView addConstraint: [NSLayoutConstraint constraintWithItem:_leftOrTopView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0]];
-
+        _textViewToTop.constant = 330;
+        _textViewToBottom.constant = 250;
+        _textViewToLeading.constant = 20;
+        _textViewToTrailing.constant = 20;
     }
     else
     {
@@ -58,7 +66,10 @@
         [_containerView addConstraint: [NSLayoutConstraint constraintWithItem:_leftOrTopView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0 ]];
         [_containerView addConstraint: [NSLayoutConstraint constraintWithItem:_leftOrTopView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0]];
         //[_containerView addConstraint:_equalHeights];
-        
+        _textViewToTop.constant = 100;
+        _textViewToBottom.constant = 50;
+        _textViewToLeading.constant = 400;
+        _textViewToTrailing.constant = 20;
     }
     [super updateViewConstraints];
 }
