@@ -44,8 +44,6 @@
         [_containerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_leftOrTopView]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_leftOrTopView)]];
         [_containerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_rightOrBottomView]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_rightOrBottomView)]];
         [_containerView addConstraint: [NSLayoutConstraint constraintWithItem:_leftOrTopView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0 ]];
-       //[_containerView addConstraint:_equalWidths];
-        //[_containerView addConstraint:_equalHeights];
         [_containerView addConstraint: [NSLayoutConstraint constraintWithItem:_leftOrTopView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0]];
         _textViewToTop.constant = 330;
         _textViewToBottom.constant = 250;
@@ -62,10 +60,8 @@
         [_containerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"|-[_leftOrTopView]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_leftOrTopView)]];
         [_containerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"|-[_rightOrBottomView]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_rightOrBottomView)]];
         [_containerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_leftOrTopView]-[_rightOrBottomView]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_leftOrTopView, _rightOrBottomView)]];
-        //[_containerView addConstraint:_equalWidths];
         [_containerView addConstraint: [NSLayoutConstraint constraintWithItem:_leftOrTopView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0 ]];
         [_containerView addConstraint: [NSLayoutConstraint constraintWithItem:_leftOrTopView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_rightOrBottomView attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0]];
-        //[_containerView addConstraint:_equalHeights];
         _textViewToTop.constant = 100;
         _textViewToBottom.constant = 50;
         _textViewToLeading.constant = 400;
