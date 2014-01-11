@@ -22,6 +22,7 @@
 		537F4DB6183DB5B400A13549 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 537F4D95183DB5B400A13549 /* UIKit.framework */; };
 		537F4DBE183DB5B400A13549 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 537F4DBC183DB5B400A13549 /* InfoPlist.strings */; };
 		537F4DC0183DB5B400A13549 /* AutoLayoutPractice1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 537F4DBF183DB5B400A13549 /* AutoLayoutPractice1Tests.m */; };
+		53AE72F91881AAD200EEA7DA /* AutoLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AE72F81881AAD200EEA7DA /* AutoLayoutManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		537F4DBB183DB5B400A13549 /* AutoLayoutPractice1Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AutoLayoutPractice1Tests-Info.plist"; sourceTree = "<group>"; };
 		537F4DBD183DB5B400A13549 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		537F4DBF183DB5B400A13549 /* AutoLayoutPractice1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutPractice1Tests.m; sourceTree = "<group>"; };
+		53AE72F71881AAD200EEA7DA /* AutoLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutManager.h; sourceTree = "<group>"; };
+		53AE72F81881AAD200EEA7DA /* AutoLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				537F4DA6183DB5B400A13549 /* Main_iPad.storyboard */,
 				537F4DA9183DB5B400A13549 /* KSViewController.h */,
 				537F4DAA183DB5B400A13549 /* KSViewController.m */,
+				53AE72F71881AAD200EEA7DA /* AutoLayoutManager.h */,
+				53AE72F81881AAD200EEA7DA /* AutoLayoutManager.m */,
 				537F4DAC183DB5B400A13549 /* Images.xcassets */,
 				537F4D98183DB5B400A13549 /* Supporting Files */,
 			);
@@ -257,6 +262,7 @@
 				537F4DAB183DB5B400A13549 /* KSViewController.m in Sources */,
 				537F4DA2183DB5B400A13549 /* KSAppDelegate.m in Sources */,
 				537F4D9E183DB5B400A13549 /* main.m in Sources */,
+				53AE72F91881AAD200EEA7DA /* AutoLayoutManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +481,7 @@
 				537F4DC5183DB5B400A13549 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		537F4DC6183DB5B400A13549 /* Build configuration list for PBXNativeTarget "AutoLayoutPractice1Tests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +490,7 @@
 				537F4DC8183DB5B400A13549 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
